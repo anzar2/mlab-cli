@@ -1,0 +1,16 @@
+[package]
+name = "mlab"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clearscreen = "4.0.1"
+colored = "3.0.0"
+figlet-rs = "0.1.5"
+inquire = "0.7.5"
+mysql = "26.0.0"
+regex = "1.11.1"
+rusqlite = "0.34.0"
+tiberius = "0.12.3"
+tokio-postgres = "0.7.13"
+unidecode = "0.3.0"
