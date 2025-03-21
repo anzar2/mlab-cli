@@ -3,7 +3,7 @@ use crate::console::styles::bold;
 use crate::db::database::DatabaseConfig;
 use crate::db::smtp::SmtpConfig;
 use crate::db::user::UserConfig;
-use crate::ui;
+use crate::{ui, utils};
 use crate::utils::TrimIdentation;
 use crate::console;
 use std::io::Write;
@@ -29,6 +29,11 @@ impl Installer {
         }
     }
     pub fn run(&mut self) {
+        if let Err(error) = utils::validate_environment() {
+            console::error(&error);
+            std::process::exit(1);
+        }
+        
         ui::print_welcome();
         loop {
             self.database_config = ui::select_database();
@@ -37,7 +42,6 @@ impl Installer {
                 Ok(_) => break,
                 Err(error) => {
                     console::clean();
-                    println!("{}", self.database_config.engine);
                     console::error(error.as_str());
                     console::error("Try again");
                 }

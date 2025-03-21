@@ -11,11 +11,6 @@ use installer::Installer;
 use std::env;
 
 fn main() {
-    if let Err(error) = utils::validate_environment() {
-        console::error(&error);
-        std::process::exit(1);
-    }
-
     let mut installer = Installer::init();
     
     match env::args().nth(1).as_deref() {

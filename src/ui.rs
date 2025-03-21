@@ -22,12 +22,12 @@ fn print_description() {
         format!(
             "{}: {}",
             console::styles::bold("Repository"),
-            "https://github.com/MiceLab/MiceLab"
+            "https://github.com/anzar2/micelab"
         ),
         format!(
             "{}: {}",
             console::styles::bold("Created by"),
-            "https://github.com/MiceLab"
+            "https://github.com/anzar2"
         )
     );
     println!("{description}");
