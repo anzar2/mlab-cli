@@ -1,4 +1,4 @@
-use crate::artisan::Artisan;
+use crate::artisan::{Artisan, ArtisanCommand};
 use crate::console::styles::bold;
 use crate::db::database::DatabaseConfig;
 use crate::db::smtp::SmtpConfig;
@@ -7,6 +7,7 @@ use crate::{ui, utils};
 use crate::utils::TrimIdentation;
 use crate::console;
 use std::io::Write;
+use std::vec;
 
 pub struct Installer {
     database_config: DatabaseConfig,
@@ -62,20 +63,20 @@ impl Installer {
 
         match self.write_dotenv() {
             Ok(_) => {
-
+                Artisan::check_installation();
                 Artisan::generate_key();
                 Artisan::migrate();
                 Artisan::seed();
                 Artisan::create_user(&self.user_config);
                 Artisan::create_team(self.team_name.as_str());
-                console::help::set_production();
+                Artisan::cmd("Setting production mode...", "php", vec!["artisan", "app:set-production"]);
 
                 console::print(&bold("Micelab is configured. Check your .env file for additional custom configuration"));
                 console::print("Make sure to have your deploy environment properly configured");
                 console::print("See: https://laravel.com/docs/12.x/deployment#main-content for more information");
 
                 console::info(
-                    "NOTE: app is production mode. If you want to switch to debug mode run 'mlab debug'",
+                    "NOTE: app is production mode. If you want to switch to debug mode run 'mlab env:debug'",
                 );
             }
             Err(error) => console::error(error.to_string().as_str()),

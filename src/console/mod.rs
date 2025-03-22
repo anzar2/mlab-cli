@@ -25,3 +25,7 @@ pub fn success(text: &str) {
 pub fn header(title: &str, subtitle: &str) {
     print!("\n{}\n{}\n\n", title.on_purple().bold(), subtitle);
 }
+
+pub fn warning(text: &str) {
+    println!("{} {}", "⚠" .yellow().bold(), text.yellow().bold().to_string());
+}

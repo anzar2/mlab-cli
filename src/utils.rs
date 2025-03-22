@@ -32,11 +32,6 @@ pub fn validate_environment() -> Result<(), String> {
 
     return Ok(());
 }
-
-pub fn dotenv_exists() -> bool {
-    return Path::new(".env").exists();
-}
-
 pub trait TrimIdentation {
     fn trim_indentation(&self) -> String;
 }

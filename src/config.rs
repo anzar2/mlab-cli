@@ -1,3 +1,14 @@
+pub struct Commands;
+impl Commands {
+    pub const INSTALL: &str = "install";
+    pub const HELP : &str = "help";
+    pub const ENV_DEBUG : &str = "env:debug";
+    pub const ENV_PRODUCTION : &str = "env:production";
+    pub const ENV_CHECK : &str = "env:check";
+    pub const UNINSTALL : &str = "uninstall";
+}
+
+
 pub fn supported_languages() -> Vec<&'static str> {
     return vec!["es", "en"];
 }
@@ -10,3 +21,4 @@ pub fn supported_databases() -> Vec<&'static str> {
         // "pgsql",
     ];
 }
+

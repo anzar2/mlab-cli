@@ -255,3 +255,12 @@ pub fn configure_smtp() -> SmtpConfig {
         smtp_from_name,
     );
 }
+
+
+pub fn ask_proceed() -> bool{
+    let proceed = Confirm::new("Do you want to proceed?")
+        .with_default(false)
+        .prompt().expect("Error: an error occurred on asking proceed");
+
+    return proceed;
+}
