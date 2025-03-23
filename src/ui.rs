@@ -22,7 +22,7 @@ fn print_description() {
         format!(
             "{}: {}",
             console::styles::bold("Repository"),
-            "https://github.com/anzar2/micelab"
+            "https://github.com/anzar2/micelab-cli"
         ),
         format!(
             "{}: {}",
