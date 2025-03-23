@@ -21,7 +21,7 @@ impl Artisan {
     }
 
     pub fn generate_key() {
-        Self::cmd("Generating key...", "php", vec!["artisan", "key:generate", "--force"]);
+        Self::cmd("Generating key...", "php", vec!["artisan", "app:generate-key"]);
     }
 
     pub fn uninstall() {

@@ -7,6 +7,8 @@ impl Commands {
     pub const ENV_CHECK : &str = "env:check";
     pub const UNINSTALL : &str = "uninstall";
     pub const VERSION : &str = "version";
+    
+    #[allow(dead_code)]
     pub const TEST_BASIC_INSTALLATION : &str = "test:basic-installation";
 }
 

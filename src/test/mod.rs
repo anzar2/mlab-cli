@@ -42,7 +42,6 @@ pub fn test_basic_installation() {
     );
     installer.install();
 
-    crate::console::clean();
     crate::console::header("Installation simulation finished", "Expected behaviour:\n\n1. Installer runs without errors and exit codes");
     crate::console::print("Result:");
     crate::console::success("Installation ran without errors");
@@ -53,6 +52,9 @@ pub fn test_basic_installation() {
         "php",
         vec!["artisan", "db:wipe", "--force"],
     );
-    
-   
+
+    if std::path::Path::new(".env").exists() {
+        std::fs::remove_file(".env").expect("Unable to remove .env file.");
+        crate::console::success("Removed .env file");
+    }
 }
