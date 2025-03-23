@@ -6,6 +6,7 @@ mod installer;
 mod ui;
 mod utils;
 mod validators;
+mod test;
 
 use installer::Installer;
 use artisan::Artisan;
@@ -23,6 +24,11 @@ fn main() {
         Some(Commands::UNINSTALL)       => Artisan::uninstall(),
         Some(Commands::ENV_CHECK)       => Artisan::check_environment(),
         Some(Commands::VERSION)         => println!("mlab v{}", env!("CARGO_PKG_VERSION")),
+        
+        // Only available in debug mode
+        #[cfg(debug_assertions)]
+        Some(Commands::TEST_BASIC_INSTALLATION) => test::test_basic_installation(),
+
         _ => {
             console::help::print_help();
             std::process::exit(1);

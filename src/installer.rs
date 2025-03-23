@@ -10,12 +10,12 @@ use std::io::Write;
 use std::vec;
 
 pub struct Installer {
-    database_config: DatabaseConfig,
-    user_config: UserConfig,
-    smpt_config: SmtpConfig,
-    locale: String,
-    insert_example_data: bool,
-    team_name: String,
+    pub database_config: DatabaseConfig,
+    pub user_config: UserConfig,
+    pub smpt_config: SmtpConfig,
+    pub locale: String,
+    pub insert_example_data: bool,
+    pub team_name: String,
 }
 
 impl Installer {
@@ -58,7 +58,7 @@ impl Installer {
         self.install();
     }
 
-    fn install(&self) {
+    pub fn install(&self) {
         console::info("Creating .env file...");
 
         match self.write_dotenv() {
@@ -68,8 +68,8 @@ impl Installer {
                 Artisan::seed();
                 Artisan::create_user(&self.user_config);
                 Artisan::create_team(self.team_name.as_str());
-                Artisan::generate_key();
                 Artisan::cmd("Setting production mode...", "php", vec!["artisan", "app:set-production"]);
+                Artisan::generate_key();
 
                 console::print(&bold("Micelab is configured. Check your .env file for additional custom configuration"));
                 console::print("Make sure to have your deploy environment properly configured");
