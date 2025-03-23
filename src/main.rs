@@ -21,7 +21,7 @@ fn main() {
         Some(Commands::ENV_DEBUG)       => Artisan::set_development(),
         Some(Commands::ENV_PRODUCTION)  => Artisan::set_production(),
         Some(Commands::UNINSTALL)       => Artisan::uninstall(),
-        Some(Commands::ENV_CHECK)       => console::help::check_environment(),
+        Some(Commands::ENV_CHECK)       => Artisan::check_environment(),
         _ => {
             console::help::print_help();
             std::process::exit(1);

@@ -2,22 +2,6 @@ use crate::console;
 use crate::utils::TrimIdentation;
 use crate::config::Commands;
 
-pub fn check_environment() {
-    match std::fs::read_to_string(".env") {
-        Ok(env) => {
-            if env.contains("APP_ENV=production") {
-                console::success("App is on production mode");
-            } else {
-                console::success("App is on development mode");
-            }
-        },
-        Err(_) => {
-            console::error("Could not read .env file");
-        }
-    }
-
-}
-
 pub fn print_help() {
     console::header("Help", "");
     println!("{}", format!(

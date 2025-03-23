@@ -76,6 +76,15 @@ impl Artisan {
         );
     }
 
+    pub fn check_environment() {
+        Self::cmd(
+            "Checking installation...",
+            "php",
+            vec!["artisan", "app:check-environment"],
+        );
+    
+    }
+
     pub fn set_development() {
         console::warning("Is not recommended running on production. It will clear all cache.");
         let ask_proceed = ui::ask_proceed();
