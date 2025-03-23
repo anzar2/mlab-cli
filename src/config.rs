@@ -6,8 +6,8 @@ impl Commands {
     pub const ENV_PRODUCTION : &str = "env:production";
     pub const ENV_CHECK : &str = "env:check";
     pub const UNINSTALL : &str = "uninstall";
+    pub const TEST_BASIC_INSTALLATION : &str = "test:basic-installation";
 }
-
 
 pub fn supported_languages() -> Vec<&'static str> {
     return vec!["es", "en"];

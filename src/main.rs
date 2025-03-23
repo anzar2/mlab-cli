@@ -6,6 +6,7 @@ mod installer;
 mod ui;
 mod utils;
 mod validators;
+mod test;
 
 use installer::Installer;
 use artisan::Artisan;
@@ -22,6 +23,11 @@ fn main() {
         Some(Commands::ENV_PRODUCTION)  => Artisan::set_production(),
         Some(Commands::UNINSTALL)       => Artisan::uninstall(),
         Some(Commands::ENV_CHECK)       => Artisan::check_environment(),
+        
+        // Only available in debug mode
+        #[cfg(debug_assertions)]
+        Some(Commands::TEST_BASIC_INSTALLATION) => test::test_basic_installation(),
+
         _ => {
             console::help::print_help();
             std::process::exit(1);
