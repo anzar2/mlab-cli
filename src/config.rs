@@ -6,6 +6,7 @@ impl Commands {
     pub const ENV_PRODUCTION : &str = "env:production";
     pub const ENV_CHECK : &str = "env:check";
     pub const UNINSTALL : &str = "uninstall";
+    pub const VERSION : &str = "version";
 }
 
 
