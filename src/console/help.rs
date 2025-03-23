@@ -15,6 +15,7 @@ pub fn print_help() {
             [{}] => Change the app to production mode
             [{}] => Check if app is on production or debug,
             [{}] => Uninstall MiceLab
+            [{}] => Show MiceLab version
             "#,
             console::styles::bold("Usage:"),
             console::styles::bold("Available Commands:"),
@@ -23,6 +24,7 @@ pub fn print_help() {
             Commands::ENV_DEBUG,
             Commands::ENV_PRODUCTION,
             Commands::ENV_CHECK,
-            Commands::UNINSTALL
+            Commands::UNINSTALL,
+            Commands::VERSION
         ).trim_indentation()); 
 }
