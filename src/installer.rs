@@ -64,11 +64,11 @@ impl Installer {
         match self.write_dotenv() {
             Ok(_) => {
                 Artisan::check_installation();
-                Artisan::generate_key();
                 Artisan::migrate();
                 Artisan::seed();
                 Artisan::create_user(&self.user_config);
                 Artisan::create_team(self.team_name.as_str());
+                Artisan::generate_key();
                 Artisan::cmd("Setting production mode...", "php", vec!["artisan", "app:set-production"]);
 
                 console::print(&bold("Micelab is configured. Check your .env file for additional custom configuration"));
