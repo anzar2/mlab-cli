@@ -25,7 +25,8 @@ it's been assumed that you have:
 - cargo
 
 ```bash
-cargo build --release
+cargo build --release # Production use version. Without tests commands.
+cargo build # Debug, development version. With test commands
 ```
   
 ### Dependencies
