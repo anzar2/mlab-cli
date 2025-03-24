@@ -23,6 +23,10 @@ mlab [command]
 it's been assumed that you have:
 - rust
 - cargo
+
+```bash
+cargo build --release
+```
   
 ### Dependencies
 In order to build by your own, you must need some dependencies installed on your system:
