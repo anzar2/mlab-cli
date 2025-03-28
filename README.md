@@ -3,7 +3,7 @@ A command line installer made for <a>Micelab</a>
 
 >**Note: This is literally my first program written on rust, so there's a lot of improvements changes ahead. Any improvement suggestions are welcome 🗿**
 
-### Usage (v2.1.2)
+### Usage (v2.1.3)
 ```bash
 mlab [command]
 ```
