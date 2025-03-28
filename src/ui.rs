@@ -127,17 +127,17 @@ pub fn create_user() -> UserConfig {
     );
 
     let display_name = Text::new("Display Name:")
-        .with_placeholder("John")
+        .with_placeholder("John Doe")
         .with_validator(required)
         .prompt()
-        .expect(" Error: First name is required")
+        .expect("Error: First name is required")
         .trim()
         .to_string();
 
     let uname_placeholder = unidecode::unidecode(
         format!(
             "{}",
-            &display_name[0..3].to_lowercase()
+            &display_name.replace(" ", ".").to_lowercase()
         )
         .as_str(),
     );
@@ -151,7 +151,7 @@ pub fn create_user() -> UserConfig {
         .to_string();
 
     let email = Text::new("Email:")
-        .with_placeholder("o2bNt@example.com")
+        .with_placeholder("your-email@example.com")
         .with_validators(&[Box::new(required), Box::new(email)])
         .prompt()
         .expect("Error: Email is required")
@@ -223,7 +223,7 @@ pub fn configure_smtp() -> SmtpConfig {
         .expect("Error: SMTP password is required");
 
     let smtp_from = Text::new("From:")
-        .with_placeholder("7o9pD@example.com")
+        .with_placeholder("spmt-from-email@example.com")
         .with_validator(required)
         .with_help_message("This is the email address that will be used to send emails")
         .prompt()

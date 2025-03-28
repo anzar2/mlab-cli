@@ -41,6 +41,3 @@ In order to build by your own, you must need some dependencies installed on your
     sudo dnf install gcc openssl-devel sqlite-devel
 ```
 > **Note:** Write an issue if i missed one
-
-## Extra
-Thanks to <a href="https://github.com/AstronautMarkus">AstronautMarkus</a> for testing this tool 🔥
