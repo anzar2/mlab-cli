@@ -126,7 +126,7 @@ pub fn create_user() -> UserConfig {
         "Please configure your admin user (you will use this user to login after installation)",
     );
 
-    let first_name = Text::new("First name:")
+    let display_name = Text::new("Display Name:")
         .with_placeholder("John")
         .with_validator(required)
         .prompt()
@@ -134,19 +134,10 @@ pub fn create_user() -> UserConfig {
         .trim()
         .to_string();
 
-    let last_name = Text::new("Last name:")
-        .with_placeholder("Doe")
-        .with_validator(required)
-        .prompt()
-        .expect("Error: Last name is required")
-        .trim()
-        .to_string();
-
     let uname_placeholder = unidecode::unidecode(
         format!(
-            "{}.{}",
-            &first_name[0..3].to_lowercase(),
-            last_name.to_lowercase()
+            "{}",
+            &display_name[0..3].to_lowercase()
         )
         .as_str(),
     );
@@ -175,7 +166,7 @@ pub fn create_user() -> UserConfig {
 
     username = if username.is_empty() { uname_placeholder } else { username };
 
-    return UserConfig::new(first_name, last_name, email, username, password);
+    return UserConfig::new(display_name, email, username, password);
 }
 
 pub fn create_team() -> String {

@@ -26,8 +26,7 @@ pub fn test_basic_installation() {
 
     installer.user_config = crate::db::user::UserConfig::new(
         String::from("TEST"),
-        String::from("TEST"),
-        String::from("TEST"),
+        String::from("TEST@TEST.com"),
         String::from("TEST"),
         String::from("TEST"),
     );

@@ -51,8 +51,7 @@ impl Artisan {
             vec![
                 "artisan",
                 "app:create-admin",
-                user_config.first_name.as_str(),
-                user_config.last_name.as_str(),
+                user_config.display_name.as_str(),
                 user_config.email.as_str(),
                 user_config.password.as_str(),
                 user_config.username.as_str(),
