@@ -1,6 +1,6 @@
 [package]
 name = "mlab"
-version = "2.1.3"
+version = "2.1.31"
 edition = "2024"
 
 
@@ -11,7 +11,7 @@ figlet-rs = "0.1.5"
 inquire = "0.7.5"
 mysql = "26.0.0"
 regex = "1.11.1"
-rusqlite = "0.34.0"
+rusqlite = { version = "0.34.0", features = ["bundled"] }
 tiberius = "0.12.3"
 tokio-postgres = "0.7.13"
 unidecode = "0.3.0"
